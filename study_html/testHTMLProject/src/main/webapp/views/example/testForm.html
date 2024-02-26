@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<header>
+	<h1>폼(form) 태그 연습 페이지</h1>
+	<h3>브라우저에서 클라이언트로 부터 값을 입력받아서, 서버로 전송하는 태그임</h3>
+</header>
+<hr>
+<section style="width:400px;background-color:#ccff99;">
+<!-- style 속성 : 모든 태그에 사용하는 속성임, 간단하게 css 속성을 지정할 때 사용함
+		style="css속성:값;css속성:값;"
+ -->
+	<h3>로그인 폼</h3>
+	<form action="receive.html" method="post">
+	<!-- form 태그 속성
+			action="서버측 값 받을 클래스명"
+			method="post" | "get" 생략시 get
+					* post : request 객체의 body 안에 전송되는 입력값들이 인코딩 기록되서 전송감
+								브라우저 주소표시줄에 안 보임
+					* get : request 객체의 head에 기록되서 전송감
+								브라우저 주서표시줄에 보여짐
+	 -->
+		<fieldset>
+			<legend>로그인하세요.</legend>
+			아이디 : <input type="text" name="userid"><br> 
+			<!-- text : 일반 글자형식의 값을 입력하는 입력양식, 입력 글자가 보여짐 -->
+			암 호 : <input type="password" name="userpwd"> <br>
+			<!-- password : 패스워드 기록용 입력양식, 입력값이 *** 표시됨 -->
+			<input type="submit" value="로그인">
+			<!-- submit 버튼 : form 태그 안에 입력된 값들을 모두 서버로 전송함 -->
+		</fieldset>
+	</form>
+</section>
+<hr>
+<section>
+	<h3 align=center>회원 가입 양식</h3>
+	<form action="receive.html" method="post">
+		<table width="600" align="center" bgcolor="#fcc" cellsapcing=0 cellpadding=3>
+		<tr><th width=150>이 름</th>
+				<td><input type="text" name="username">
+		</td></tr>		
+		<tr><th width=150>아이디</th>
+				<td><input type="text" name="userid">&nbsp;
+						<input type="button" value="중복확인"></td></tr>		
+		<tr><th width=150>암 호</th>
+				<td><input type="password" name="userpwd"></td></tr>		
+		<tr><th width=150>암호확인</th>
+				<td><input type="password"></td></tr>		
+		<tr><th width=150>성 별</th>
+				<td>
+				<input type="radio" name="gender" value="남">남자 &nbsp;
+				<input type="radio" name="gender" value="여">여자
+				</td></tr>		
+		<tr><th width=150>나 이</th>
+				<td><input type="number" name="age" min="19" max="150" step="1"></td></tr>		
+		<tr><th width=150>생년월일</th>
+				<td><input type="date" name="birthday"></td></tr>		
+		<tr><th width=150>이메일</th>
+				<td><input type="email" name="email"></td></tr>		
+		<tr><th width=150>전화번호</th>
+				<td><input type="tel" name="phone"></td></tr>		
+		<tr><th width=150>우편번호</th>
+				<td><input type="text" name="zipcode" maxlength=5>&nbsp;
+						<input type="button" value="우편번호">
+				</td></tr>		
+		<tr><th width=150>주 소</th>
+				<td><input type="text" name="address"></td></tr>		
+		<tr><th width=150>직 업</th>
+			<td>
+			<select name="job">
+				<option value="학생">학생</option>
+				<option value="회사원">회사원</option>
+				<option value="프리렌서">프리렌서</option>
+				<option value="주부">주부</option>
+				<option value="기타">기타</option>
+			</select></td>
+		</tr>		
+		<tr><th width=150>취 미</th>
+			<td>
+				<table width=420 height=150><!-- 필요시 칸 안에서 table 태그 사용 가능함 -->
+					<tr height=50>
+						<td width=140>
+						<label value="등산0">
+							<input type="checkbox" name="hobby" value="등산0"> 등산1
+						</label>
+						</td>
+						<td width=140>
+							<input type="checkbox" name="hobby" value="등산1"> 등산2
+						</td>
+						<td width=140>
+							<input type="checkbox" name="hobby" value="등산2"> 등산3
+						</td>
+					</tr>
+					<tr height=50>
+						<td width=140>
+							<input type="checkbox" name="hobby" value="등산3"> 등산4
+						</td>
+						<td width=140>
+							<input type="checkbox" name="hobby" value="등산4"> 등산5
+						</td>
+						<td width=140>
+							<input type="checkbox" name="hobby" value="등산5"> 등산6
+						</td>
+					</tr>
+					<tr height=50>
+						<td width=140>
+							<input type="checkbox" name="hobby" value="등산6"> 등산7
+						</td>
+						<td width=140>
+							<input type="checkbox" name="hobby" value="등산7"> 등산8
+						</td>
+						<td width=140>
+							<input type="checkbox" name="hobby" value="등산8"> 등산9
+						</td>
+					</tr>
+				</table>
+			</td></tr>		
+		<tr><th width=150>기타사항</th>
+				<td>
+					<textarea rows="3" cols="50" name="etc"></textarea>
+				</td></tr>		
+		<tr>
+			<th colspan=2>
+				<input type="submit" value="가입하기"> &nbsp;
+				<input type="reset" value="등록취소">
+			</th>
+		</tr>		
+		</table>
+	</form>
+</section>
+<hr>
+<footer> <!-- 웹페이지의 하단 영역을 의미하는 태그 -->
+	<center>
+		바닥글 영역을 의미함, 회사명, 회사주소, 전화번호, 팩스번호, 저작권 정보 등 표시함<br>
+		copyrighit@testh.com 2024. 2. 13 developer : test master<br>
+		Tel : 02-1234-5678, Fax : 02-1234-5677<br>
+		서울시 서초구 서초대로 77	
+	</center>
+</footer>
+</body>
+</html>

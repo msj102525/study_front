@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<header>
+	<h1>표(table) 태그 연습 페이지</h1>
+	<h3>table, tr, td 태그 사용함</h3>
+	<h4>컨텐츠의 규칙적인 배치를 위한 레이아웃 용도로 주로 사용하는 태그임</h4>
+</header>
+<hr>
+<section>
+	<h1>제목글자 headline 1</h1>
+	<h2>제목글자 headline 1</h2>
+	<h3>제목글자 headline 1</h3>
+	<h4>제목글자 headline 1</h4>
+	<h5>제목글자 headline 1</h5>
+	<h6>제목글자 headline 1</h6>	
+</section>
+<hr>
+<section>
+	<table width=600 height=300 border=1 cellspacing="0" cellpadding="0" align="center">
+		<tr  bgcolor="#03c75a">
+			<th width="150">1</th>
+			<th width="100">2</th>
+			<th>3</th>
+		</tr>
+		<tr  valign="top" height=100>
+			<td>4</td>
+			<td><img alt="" src="/testh/resources/images/flower4.jpg" display="block" width="100" height="100"></td>
+			<td>6</td>
+		</tr>
+		<tr align="right" valign="bottom">
+			<td bgcolor="#1fb5cf">7</td>
+			<td background="/testh/resources/images/twitter.jpg">8</td>
+			<td>9</td>
+		</tr>
+	</table>
+</section>
+<hr>
+<section>
+	<h3>표 연습 2 : 셀 합치기 속성 - colspan, rowspan</h3>
+	<table width=500 height=250 border=1 cellspacing=0 cellpadding=0 align=center>
+		<tr height=50>
+			<td colspan="3" bgcolor="orange" align="center" valign="middle">1-1</td>
+			<td rowspan =2 width=100>
+			<img src="/testh/resources/images/flower2.jpg" width="100" height=100
+			style="margin:0px"></td>
+			<td rowspan=5 bgcolor="#fcc" align="center" valign="middle">1-5</td>
+		</tr>
+		<tr>
+			<td>2-1</td>
+			<td>2-3</td>
+			<td>2-4</td>
+		</tr>
+		<tr>
+			<td colspan="4" bgcolor="#ccc" valign="middle" align="center">3-1</td>
+		</tr>
+		<tr>
+			<td rowspan="2" bgcolor="#123">4-1</td>
+			<td>4-2</td>
+			<td>4-3</td>
+			<td>4-4</td>
+		</tr>
+		<tr>
+			<td>5-2</td>
+			<td>5-3</td>
+			<td>5-4</td>
+		</tr>	
+	</table>
+</section>
+<hr>
+<footer> <!-- 웹페이지의 하단 영역을 의미하는 태그 -->
+	<center>
+		바닥글 영역을 의미함, 회사명, 회사주소, 전화번호, 팩스번호, 저작권 정보 등 표시함<br>
+		copyrighit@testh.com 2024. 2. 13 developer : test master<br>
+		Tel : 02-1234-5678, Fax : 02-1234-5677<br>
+		서울시 서초구 서초대로 77	
+	</center>
+</footer>
+</body>
+</html>

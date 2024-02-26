@@ -1,0 +1,74 @@
+<!DOCTYPE html><!-- 이 문서에 사용될 html 종류가 html5 임을 표시하는 구문임  -->
+<html lnag="ko"> <!-- html 문서의 시작을 뜻하는 태그(tag)임 -->
+<!-- 시작태그명에 속성(attribute)을 추가할 수 있음, 시작태그명 속성="값" -->
+<head> 
+<!-- head 안에 작성한 내용은 브라우저에서 안 보임, 문서의 설정 처리와 관련된 내용을 다루는 영역 -->
+<meta charset="UTF-8"> <!-- 단일 태그 : 닫기 태그가 없는 태그를 말함 -->
+<title>testh</title> <!-- 복합 태그 : 닫기 태그가 있는 태그, 기본 -->
+<style type="text/css">
+.box iframe {
+	position: relative; /* 상대위치로 지정 : 태그가 표시될 원래 위치를 기준으로 좌표를 지정하는 방식*/
+	left: 200px; /*원래 위치에서 오른쪽으로 200px 이동한 위치에 표시함*/
+	top: -200px; /* 원래 위치에서 위쪽으로 200px 이동한 위치에 표시함*/
+	z-index: 3;		
+}
+</style>
+</head>
+<body> <!-- 브라우저에 보여지는 내용을 작성하는 영역을 의미하는 태그임 -->
+<!-- 웹 문서의 글자 크기는 기본 font size (1~7) 3임 (12포인트) 
+		1포인트 == 0.039mm
+-->
+
+<!-- 시멘틱(Simentic) 태그 : 태그명으로 의미를 알 수 있는 태그 -->
+<header>
+<!-- 웹사이트 로고 이미지, 네비게이션 바 등이 주로 표시됨 -->
+	<h1>HTML test project : Welcome Page! (시작 페이지)</h1>
+	<!-- h숫자 : headline 줄임말, 숫자는 1 ~ 6까지 표시가능함
+					제목글자 표시용으로 사용함, 자동 줄바꿈 처리됨
+					h1이 가장 큼, h6이 가장 작음 
+	-->
+	목록 만들기 태그 : ul(unorder list), ol(order list), dl(definition list) <br>
+	메뉴바(navigation bar) 만들 때 이용함 <br>
+	<ul type = "circle"> <!-- unorder list : 순번 없는 기호로 표시되는 목록만들 때 사용 -->
+		<li>목록 1</li>
+		<li><a href = "views/example/testImage.html">이미지 처리 태그</a></li> <!-- list : 목록 항목 하나를 의미함 -->
+		<!-- anchor : 연결된 대상을 클릭하면 연결 페이지로 이동시켜 주는 태그임 -->
+		<!-- href 속성 : 필수 속성임 ( 반드시 사용해야 하는 속성)
+						href="연결할페이지(*.html, url)" -->
+		<li><a href = "views/example/testMulti.html">멀티미디어 처리 태그</a></li>
+		<li><a href = "views/example/testTable.html">표(table) 처리 태그</a></li>
+		<li><a href = "views/example/testForm.html">폼(form) 처리 태그</a></li>
+		<li><a href = "views/example/testForm2.html">HTML5 폼 추가 태그</a></li>
+		<li><a href = "views/example/testFont.html">글자 관련 태그</a></li>
+		<li><a href = "views/example/testDiv.html">div 태그</a></li>
+		<li><a href = "views/example/testFrame.html">frame 관련 태그</a></li>
+		<li><a href = "views/example/orderform.html">실습문제 1</a></li>
+		<li><a href = "views/example/productform.html">실습문제 2</a></li>
+	</ul>
+</header>
+<hr> <!-- horizental : 가로선을 표시하는 태그임, 내용 구분용으로 사용함, 단일 태그 -->
+<section>
+본문영역을 의미함
+</section>
+<hr size="3" color = "#fcc" width="50%" noshade align="center">
+<!-- hr 태그에 사용하는 속성
+size="선굵기숫자" 기본 단위는 픽셀(pixel)임
+color="선색" 색이름 | #RRGGBB 16진수 (00~ff) | rgb(red, green, blue) 10진수 (0~255)
+width="선의 가로너비" 단위는 픽셀 | % 사용가능
+noshade="noshade" 속성명과 값이 같은 경우는 값 생략함, 음영효과 없엠
+align="선의 가로위치" left(기본) | center | right
+ -->
+ <div class="box">
+ 	<iframe width="400" height="300" src="http://www.daum.net"></iframe>
+ </div>
+<footer> <!-- 웹페이지의 하단 영역을 의미하는 태그 -->
+	<center>
+		바닥글 영역을 의미함, 회사명, 회사주소, 전화번호, 팩스번호, 저작권 정보 등 표시함<br>
+		copyrighit@testh.com 2024. 2. 13 developer : test master<br>
+		Tel : 02-1234-5678, Fax : 02-1234-5677<br>
+		서울시 서초구 서초대로 77	
+	</center>
+</footer>
+
+</body>
+</html> <!-- html 문서의 끝을 뜻함 --> 

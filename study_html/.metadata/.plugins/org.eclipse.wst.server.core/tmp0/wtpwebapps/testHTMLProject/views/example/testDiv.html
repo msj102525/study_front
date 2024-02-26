@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<a name="top"></a> <!-- 북마크용으로 anem 속성으로 위치에 대한 이름을 지정할 수 있음 -->
+<h1>div 태그 연습 페이지</h1>
+<!-- div 태그 : division 줄임말, 영역(구역)을 지정하는 용도로 사용함, 레이아웃(배치) 용도로 주로 사용함 -->
+<div>
+	<h2>첫번째 구역</h2>
+	<pre>
+pre 태그 : 작성한 대로 브라우저에 표시해 주는 태그임
+			    ★
+			   ★★
+			  ★★★
+			 ★★★★
+			★★★★★
+			    ||
+	</pre>		   
+</div>
+<div align="left">
+	<h2>두번째 구역</h2>
+	순서가 없는 목록 만들기 : ul(unorder list) 태그 사용 <br>
+	<ul type="circle">
+		<li>자바</li>
+		<li>오라클</li>
+		<li>jdbc</li>
+	</ul>
+</div>
+<div>
+	<h2>세번째 구역</h2>
+	순서가 있는 목록 만들기 : ol(order list) 태그 사용<br>
+	<ol type="i" start="3">
+		<li>html5</li>
+		<li>css3</li>
+		<li>javaScript</li>
+		<li>jQuery</li>
+		<li>typeScript</li>
+		<li>node.js</li>
+		<li>front framework : vue.js, react.js, angular.js</li>
+	</ol>
+</div>
+<div>
+	<dl> <!-- definition list : 용어에 대한 설명들을 목록으로 표현할 때 사용함 -->
+	<dt>HTML5</dt> <!-- definition title : 용어 단어 표시 -->
+	<dd><!-- definition define : 용어에 대한 설명 표시 -->
+	웹표준 2.0에서 사용되는 html 표준 기술로 모든 디바이스 장치에서 동일하게 보여지고
+	작동하는 웹문서를 만들기 위한 마크업 언어
+	</dd> 
+	<dt>CSS3</dt>
+	<dd>Cascade Style Sheet 줄임말로 html5 버전에 맞춘 css 최신 버전으로 플래시를 사용하지 않고도
+			애니메이션을 표현할 수 있는 속성들과 다양한 태그들에 대한 스타일 속성들이 제공되는 버전
+	</dd>	
+	</dl>
+</div>
+<hr>
+<div>
+	<h2>하이퍼링크 태그 연습 : a (anchor)</h2>
+	글자나 그림에 링크(연결) 설정할 때 사용하는 태그임<br>
+	글자에 링크 설정 : <a href="test4_01.html" target="_blank">html 4.01로 만든 문서로 이동하기</a><br>
+	그림에 링크 설정 : <a href="test4_01.html">
+		<img src="../../resources/images/flower1.jpg" width="100" hight="50">
+	</a><br>
+	href 속성에 url 사용 : <a href="http://www.naver.com target"=_blank>네이버로 이동하기</a><br>	
+	href 속성에 이메일 사용 : <a href="132123@ict.org">관리자에게 메일 보내기</a><br>
+	이메일 보내기 기능은 이메일을 보내는 엡이 설치 & 연결 되었을 때 사용가능함 (Outlook Express 등)<br>
+	사운드 파일 연결하기 : <a href="/testh/resources/multi/major.mp3">major.mp3</a>
+</div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<hr>
+<a href="#top">맨 위로 위동</a> <!-- 해당 이름이 표시된 위치로 화면 이동됨 -->
+
+</body>
+</html>

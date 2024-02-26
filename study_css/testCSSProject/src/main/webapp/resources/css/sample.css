@@ -1,0 +1,10 @@
+/* sample.css */
+@charset "UTF-8";
+
+/* 여러 종류의 태그를 선택할 때는 태그명, 태그명 으로 구분하면서 나열함 */
+body, h1, header, nav, section, footer {
+	margin: 20px;
+	padding : 0px;
+	color: blue;
+}
+

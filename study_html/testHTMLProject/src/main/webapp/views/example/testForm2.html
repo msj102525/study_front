@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<header>
+	<h1>HTML5 에서 추가된 input 테스트 페이지</h1>
+</header>
+<section>
+	<form action="값받아줄서버측클래스명" method="post">
+		<fieldset>
+			<legend>주문 내용</legend>
+				<ol>
+					<li>
+						<lable for="prod">상품명</lable>
+						<input id="prod" type="text" size="25" autofocus placeholder="주문할 상품명">
+					</li>
+					<li>
+						<label for="num">주문갯수</label>
+						<input id="num" type="number" min="1" max="10" step="1">
+					</li>
+				</ol>			
+		</fieldset>
+		<input type="submit" value="주문하기">
+	</form>
+</section>
+<hr>
+<section>
+	<form action="" method="post">
+		년월일 : <input type="data"> <br>
+		년월 : <input type="month"> <br>
+		년주 : <input type="week"> <br>
+		시간 : <input type="time"> <br>
+		년월일시간(UTC) : <input type="datetime"> <br>
+		년월일 지역시간 : <input type="datetime-local"> <br>
+	</form>
+</section>
+<hr>
+<section>
+	<form>
+		<input type="search" name="keyword" autocomplete="on" placeholder="검색 단어를 입력하세요">
+		&nbsp; &nbsp; <input type="submit" value="검색">
+	</form>
+</section>
+<hr>
+<section>
+	<form action="">
+		<label for="color">색상</label>
+		<input id="color" type="text" list="mycolor">
+		<datalist id="mycolor">
+			<option value="black" label="검정색">
+			<option value="white" label="흰색">
+			<option value="blue" label="파란색">
+		</datalist>
+		<br>
+		<input type="color"><br>
+		<input type="range" name="range" min="10" max="100" step="10">
+	</form>
+</section>
+</body>
+</html>
