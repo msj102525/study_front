@@ -21,23 +21,53 @@ header {
 	margin-bottom: 100px;
 }
 
-section#box {
+section#box { /* 태그명#아이디명 또는 #아이디명 : 아이디명이 부여된 태그를 선택 */
 	background-image: url("/testc/resources/images/back.jpg");
-	background-repeat: no-repeat; 
+	background-repeat: no-repeat;
 	width: 500px;
 	height: 300px;
 	/* border-style: solid;
 	border-color: black;
 	border-width: 3px; */
-	border: 3px solid black;
+	/* border: 3px solid black; */
+	border-left: solid gray 6px;
+	border-top: dashed black 6px;
+	border-bottom: solid black 8px;
+	border-right: dotted green 8px;
 	color: magenta;
 	font-weight: boid;
 	text-align: center;
 	white-space: normal;
 	letter-spacing: 5px;
 	text-transform: uppercase;
+	color: magenta;
 }
 
+header nav ul li a { /* 태그명 공백 태그명 : 태그 안에 있는 태그를 선택 */
+	text-decoration: none; /* 밑줄(underline) 삭제 */
+	text-shadow: 1px 1px 2px white;
+	color: black;
+	font-weight: bold;
+	display: block;
+	width: 140px;
+	height: 25px;
+}
+
+header a:hover {
+	background: navy;
+	color: white;
+	text-shadow: 1px 1px 2px orange;
+}
+
+header a:active {
+	color: red;
+}
+
+/* 수도(sudo)클래스 사용 : 선택한 태그에 동작 이벤트를 부여할 때 사용함 
+	예 : a 태그에 마우스 커서를 갖다 대었을 때 변화를 적용하려면
+*/
+
+/* a 태그 영역을 마우스 버튼 눌렀을 때 */
 </style>
 </head>
 <body>
@@ -48,31 +78,30 @@ section#box {
 				<li class="menuitem"><a
 					href="/testc/views/test/inlineStyle.html">인라인스타일시트연습</a></li>
 				<li class="menuitem"><a
-					href="/testc/views/test/inlineStyle.html">전역&연결스타일시트연습</a></li>
+					href="/testc/views/test/globalStyle.html">전역&연결스타일시트연습</a></li>
+				<li class="menuitem"><a href="/testc/views/test/position.html">위치관련
+						속성 연습</a></li>
+				<li class="menuitem"><a href="/testc/views/test/sample1.html">sample1</a></li>
+				<li class="menuitem"><a href="/testc/views/test/sample2.html">sample2</a></li>
+				<li class="menuitem"><a href="/testc/views/test/sample3.html">transform, transition</a></li>
+				<li class="menuitem"><a href="/testc/views/test/selector.html">css3
+						selector</a></li>
 				<li class="menuitem"><a
-					href="/testc/views/test/inlineStyle.html">위치관련 속성 연습</a></li>
+					href="/testc/views/practice/make1.html">실습1</a></li>
 				<li class="menuitem"><a
-					href="/testc/views/test/inlineStyle.html">transform, transition
-						연습</a></li>
-				<li class="menuitem"><a
-					href="/testc/views/test/inlineStyle.html">css3 selector</a></li>
-				<li class="menuitem"><a
-					href="/testc/views/test/inlineStyle.html">실습1</a></li>
-				<li class="menuitem"><a
-					href="/testc/views/test/inlineStyle.html">실습2</a></li>
+					href="/testc/views/practice/make2.html">실습2</a></li>
 			</ul>
 		</nav>
 	</header>
 	<hr>
 	<section>
-		<form action="login" method ="post">
+		<form action="login" method="post">
 			<fieldset>
 				<legend>로그인 하세요</legend>
-				<label for="uid">아이디</label>
-				<input type="text" name="userid" id="uid"><br>
-				<label for="upwd">암호</label>
-				<input type="password" name="userpwd" id="upwd">
-				<input type="submit" value="로그인">
+				<label for="uid">아이디</label> <input type="text" name="userid"
+					id="uid"><br> <label for="upwd">암호</label> <input
+					type="password" name="userpwd" id="upwd"> <input
+					type="submit" value="로그인">
 			</fieldset>
 		</form>
 	</section>
