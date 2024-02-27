@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>sample3</title>
+<script type="text/javascript" src="/testj/resources/js/main2.js" defer></script>
+</head>
+<body>
+	<h1>자바스크립트에서 데이터 입력받는 방법</h1>
+	<hr>
+	<h3>자바스크립트에서 제공하는 다이얼로그(팝업창) 확인</h3>
+	<ol>
+		<li>확인버튼과 메세지만 출력하는 alert()</li>
+		<button onclick="showAlert()">alert 확인</button>
+
+		<li>확인버튼, 취소버튼, 메세지를 출력하는 confirm()</li>
+		<button onclick="showConfirm()">confirm 확인</button>
+		<p id="result1">리턴결과 확인</p>
+
+		<li>메세지, 텍스트필드, 확인버튼, 취소버튼을 제공하는 prompt()</li>
+		<button onclick="showPrompt()">prompt 확인</button>
+		<p id="result2">리턴값 확인</p>
+	</ol>
+	<hr>
+
+	<h2>form 태그의 input 입력양식을 통해서 값을 입력받는 방법</h2>
+	<form action="/testj/index.html" onsubmit="return inputValue()">
+	<!-- inputValue() 가 true 를 리턴하면 전송, false 리턴하면 전송 취소임 -->
+	<!-- onsubmit 속성 : form 태그에만 사용할 수 있음, submit(전송) 버튼 눌렀을 때 -->
+	<!-- 주의 : 반드시 return 함수명(); 으로 사용할 것, 함수가 리턴한 결과에 따라서 전송 또는 전송취소가 작동되게 함 -->
+		<label>이름 : <input type="text" id="username" name="username" size="30"></label><br>
+		<label for="address">주소 : </label>
+		<input type="text" id="address" name="address" size="100"> <br>
+		<input type="submit" value="확인">
+	</form>
+	<hr>
+	
+	<h2>문자열을 숫자로 바꾸기 : 간단 계산기</h2>
+	첫번째 값 : <input type="number" id="n1"> <br>
+	두번째 값 : <input type="number" id="n2"> <br>
+	<input type="button" value="+" onclick="calculator2('+')"> &nbsp;
+	<input type="button" value="-" onclick="calculator2('-')"> &nbsp;
+	<input type="button" value="*" onclick="calculator2('*')"> &nbsp;
+	<input type="button" value="/" onclick="calculator2('/')"> &nbsp;
+	<input type="button" value="%" onclick="calculator2('%')"> &nbsp;
+	<br>
+	계산 결과 : <p id="calc"></p>
+	<hr>
+	
+	<h2>자바스크립트 연산자 : === 연산자, !== 연산자 확인</h2>
+	<h3>== 연산자 : 값이 일치하는지 확인 비교함,
+	=== 연산자 : 값과 자료형 둘 다 일치하는지 확인할 때 사용함
+	</h3>
+	
+	<button onclick="equalCheck();">확인</button>
+	<hr>
+	
+	<h2>switch문 case에 조건식 사용 가능함</h2>
+	<button onclick="switchCheck()">시간확인</button>
+	<hr>
+	
+	<h2>짧은 조건문 사용 가능함 : 논리연산자</h2>
+	<button onclick="logicCheck()">확인</button>
+	
+	
+	
+</body>
+</html>
