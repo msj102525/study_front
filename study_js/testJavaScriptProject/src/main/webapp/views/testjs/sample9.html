@@ -2,9 +2,91 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>sample1</title>
+<title>sample9</title>
+<script type="text/javascript">
+	/* window.onload = function() {
+		// body 영역에서 마우스 버튼 눌렀을 때 작동되는 이벤트
+		document.body.onmousedown = function() {
+			console.log("body에서 마우스 버튼 누름");
+		};
+
+		// 이벤트 핸들러 콜백함수에는 발생한 이벤트 정보를 다루는 event 매개변수를 사용할 수 있음
+		document.body.onmousemove = function(event) {
+			console.log(event.x + ", " + event.y)
+		}
+	}; */
+</script>
+
 </head>
 <body>
+	<h1>자바스크립트에서 객체(json) 다루기</h1>
+	<h2>객체 만들기 : function 객체명(){ 멤버 구성 }</h2>
+	<button onclick="testObject();">실행확인</button>
+	<p id="p1">
+		함수명은 소문자로 시작함<br> 함수명은 소문자로 시작함<br>
+	</p>
+
+	<script type="text/javascript">
+		function Book() { // 객체 정의이면서, 생성자가 됨
+			// 필드(field) == 멤버변수 == 속성(property)
+			// 멤버변수 만들기 : this.속성명 = 값;
+			this.title = null;
+			this.author = null;
+			this.price = 0;
+
+			// 메소드(method) == 멤버함수
+			// 멤버함수 만들기 : this.메소드명 = function(){ 소스 작성 };
+			this.setBook = function(t, a, p) {
+				this.title = t;
+				this.author = a;
+				this.price = p;
+			};
+			this.display = function() {
+				// 아이디 p1에 추가 기록
+				document.getElementById('p1').innerHTML += this.title + ', '
+						+ this.author + ", " + this.price + '<br>';
+			};
+		} // Book object
+
+		// 객체 사용 함수 작성
+		function testObject() {
+			// 객체 생성
+			var b = new Book();
+			b.setBook('자바스크립트 기본', '제임스황', 35000);
+			b.display();
+		}
+	</script>
+	<hr>
+
+	<h2>버튼 누르면 p2 영역에 div 태그가 추가되게 함</h2>
+	<button onclick="addDiv();">div 추가</button>
+	<p id="p2"></p>
+
+	<script type="text/javascript">
+		// 객체 만들기
+		function MkDiv() {
+			// 속성
+			this.element = null;
+			
+			// 메소드
+			this.make = function(id, w, h, c){
+				// div 태그 만들기해서 엘리먼트에 저장
+				this.element = document.createElement("div");
+				this.element.id = id;
+				this.element.style.width = w + 'px';
+				this.element.style.height = h + 'px';
+				this.element.style.backgroundColor = c;
+				
+				return this.element;
+			};
+		}; // MkDiv object
+		
+		// 버튼 클릭시 실행될 함수
+		function addDiv(){
+			document.getElementById('p2').appendChild(new MkDiv().make('box', 30, 100, 'red'));
+			
+		}
+	</script>
 
 </body>
 </html>

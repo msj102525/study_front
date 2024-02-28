@@ -2,9 +2,83 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>sample1</title>
+<title>sample8</title>
+<script type="text/javascript">
+	function changeBg(color) {
+		// 자바스크립트에서 태그 엘리멘트에 접근하는 방법 : 
+		// document.태그명.속성, document.태그명[인덱스].속성
+		document.body.style.backgroundColor = color;
+	}
+
+	function changeFontSize(size) {
+		var input
+	}
+
+	// 이벤트에 대한 콜백함수 처리는 반드시 window.onload 이벤트 핸들러 안에서 처리하도록 함
+	// 콜백(callback) 함수 : 이벤트에 의해서 자동 실행되는 함수를 말함
+	window.onload = function() {
+		// 문서 읽어들이기가 완료되면, 태그에 대한 이벤트도 준비 상태가 되어 있어야 하므로....
+
+		// input range 의 값이 변경되면(onchange), 아이디 h1의 글자크기로 변경값을 적용함
+		var rangeTag = document.getElementById("fntSize");
+		rangeTag.onchange = function() {
+			document.getElementById('h1').style.fontSize = rangeTag.value
+					+ "px";
+		};
+
+		// DOM(Documnet Object Model)
+		// 모든 브라우저는 읽어들인 html 문서에 사용된 태그들을 트리(tree) 구조로 만듦
+
+		// DOM level2 방식의 이벤트 처리
+		var okBtn = document.getElementById("ok");
+		// 인터넷 익스플로러 하위 버전일 때
+		if (okBtn.attachEvent) { // attachEvent가 제공된다면 true 리턴됨,
+			okBtn.attachEvent("onclick", function() {
+				document.getElementById("hh").innerHTML = document
+						.getElementById("newText").value;
+			});
+		} else {
+			/* okBtn.addEventListener("click", function() {
+				document.getElementById("hh").innerHTML = document
+						.getElementById("newText").value;
+			}); */
+			okBtn.addEventListener("click", ()=> {
+				document.getElementById("hh").innerHTML = document
+						.getElementById("#newText").value;
+			})
+		}
+
+	};
+</script>
 </head>
 <body>
+	<h1 id="h1">자바스크립트에서 이벤트 다루기</h1>
+
+	<h2>실습 1 : select 에서 색이름을 선택하면, body의 배경색이 변경되게 함</h2>
+	배경색 선택 :
+	<select onchange="changeBg(this.value);">
+		<option value="white" selected>흰색</option>
+		<option value="yellow">노란색</option>
+		<option value="pink">핑크색</option>
+		<option value="orange">오렌지색</option>
+		<option value="cyon">하늘색</option>
+	</select>
+	<br>
+	<hr>
+
+	<h2>실습 2 : input 의 range 의 값이 변경되면 위의 h1 태그의 글자크기가 변경되게 함</h2>
+	<input type="range" id="fntSize" min="10" max="100" step="10">
+	<br>
+	<hr>
+
+	<h3>실습 3 : 입력양식으로 값을 입력받고 확인 버튼 누르면 입력된 값으로 hh 제목글자가 바뀌게 함</h3>
+	<h1 id="hh">제목글자</h1>
+	<input type="text" id="newText">
+	<br>
+	<input type="button" value="확인" id="ok">
+	<br>
+
+
 
 </body>
 </html>

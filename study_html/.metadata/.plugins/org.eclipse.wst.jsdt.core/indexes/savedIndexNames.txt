@@ -1,2 +1,1 @@
-INDEX VERSION 1.4+D:\front\html\study_hmtl\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2031512174.index
+INDEX VERSION 1.4+D:\front\study_front\study_html\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
