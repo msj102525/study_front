@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>select2</title>
+<script type="text/javascript"
+	src="/testq/resources/js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" defer>
+	$(()=> {
+		$("ol li.first").css("color", "red");
+		$("ol li.second").css("color", "orange");
+		$("ol li.first:last").css("color", "green");
+		
+		$("ul li.third").css("color", "blue");
+		$("ul li.second").css("color", "blueviolet");
+		$("ul li.third:last").css("color", "purple");
+	});
+	
+</script>
+</head>
+<body>
+	<ol>
+		<li class="first"><h2>1-1</h2></li>
+		<li class="second"><h2>1-1</h2></li>
+		<li class="first"><h2>1-1</h2></li>
+	</ol>
+	<ul>
+		<li class="third"><h2>2-1</h2></li>
+		<li class="second"><h2>2-2</h2></li>
+		<li class="third"><h2>2-3</h2></li>
+	</ul>
+</body>
+</html>

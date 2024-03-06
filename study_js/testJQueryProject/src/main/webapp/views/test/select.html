@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>select</title>
+<!-- 절대경로 사용시 -->
+<!-- <script type="text/javascript" src="/testq/resources/js/jquery-3.7.1.min.js"></script> -->
+<!-- 상대경로 사용시 -->
+<script type="text/javascript"
+	src="../../resources/js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+	/* $(()=> {
+		alert("제이쿼리 연결 확인");
+	}); */
+	$(()=> {
+		// 제이쿼리 사용법
+		// $("선택자").메소드([값]);
+		
+		// 전체 선택자 : *
+		$('*').css("color", "blue");
+		// 태그 선택자 : 태그명
+		$("h1").css("color", "red");
+		$("h1").css("background-color", "yellow");
+		// 여러 태그 선택 : 태그명, 태그명
+		$("h1, h2").css("text-shadow", "2px 2px 4px #000");
+		// 아이디 선택자 : #아이디명, 태그명#아이디명
+		$("#p1").css("color", "green");
+		$("p#p1").css("backgroundColor", "orange");
+		// 클래스 선택자 : .클래스명, 태그명.클래스명
+		$("li.item").css("background-color", "pink");
+		// 하위 클래서 선택자 : 클래스명.클래스명, 태그명.클래스명.클래스명
+		$("li.item.select").css("font-family", "궁서체");
+		// 직계자손(child element, 태그 바로 아래에 사용된 태그를 말함)
+		// 태그명 > 자식태그명
+		$("li > h3").css("color", "magenta");
+		//태그명 후손태그명 : 태그 안에 있는 후손태그들을 의미함
+		$("ul h4").css("color", "black");
+		
+		// 태그의 속성으로 선택
+		$("input[type=text]").val("아이디 입력");
+		// input 태그의 type 속성값을 필터선택자로 선택할 수도 있음
+		$("input:button").val("click me!");
+		// 입력양식(input) 의 상태에 따라 선택할 수도 있음
+		$("#box").css("background-color", $("select > option:selected").val());
+		
+		// 태그 사용 순서로 선택할 수도 있음
+		$("span:first").css("color", "navy");
+		$("span:last").css("color", "olive");
+		$("span:odd").css("color", "cyan");
+		$("span:even").css("color", "gray");
+		
+		$("table#tbl1 tr:odd").css("background", "white");
+		$("table#tbl1 tr:even").css("background", "#d9d9d9");
+		$("table#tbl1 tr:first th").css("background", "black").css("color", "white");
+		
+		// 함수 형태의 필터 선택자
+		$("table#tbl2 tr:eq(0) th").css("background", "black").css("color", "white");
+		$("table#tbl2 td:nth-child(3n + 1)").css("background", "gray");
+		$("table#tbl2 td:nth-child(3n + 2)").css("background", "yellow");
+		
+	}); // document ready
+</script>
+</head>
+<body>
+	<h1>jQuery Selector(선택자) 연습 페이지</h1>
+	<p>jQuery는 줄여서 $로 표현할 수 있다</p>
+	<h2>CSS 선택방식과 동일하게 선택할 수도 있다.</h2>
+	<p id="p1">아이디로 대상 태그를 지정하여 선택할 수도 있다.</p>
+	<ul>
+		<li class="item">목록1</li>
+		<li><h4>목록</h4></li>
+		<li class="item select">목록3</li>
+		<li><h3>목록4</h3></li>
+		<li class="item">목록5</li>
+	</ul>
+	<hr>
+	<input type="text"> <br>
+	<input type="password"> <br>
+	<input type="radio"> <br>
+	<input type="checkbox"> <br>
+	<input type="button"> <br>
+	<select>
+		<option value="red">red</option>
+		<option value="yellow" selected>yellow</option>
+		<option value="green">green</option>
+		<option value="blue">blue</option>
+		<option value="black">black</option>
+	</select>
+	
+	<div id="box" style="width:100px;height:100px;border:1px solid black;"></div>
+	
+	<span>one</span>
+	<span>two</span>
+	<span>three</span>
+	<span>four</span>
+	<span>five</span>
+	<span>six</span>
+	<span>seven</span>
+	<br>
+	<hr>
+	
+	<table id="tbl1">
+		<tr><th>이름</th><th>혈액형</th><th>지역</th></tr>
+		<tr><td>이름1</td><td>A</td><td>서울</td></tr>
+		<tr><td>이름2</td><td>B</td><td>부산</td></tr>
+		<tr><td>이름3</td><td>AB</td><td>광주</td></tr>
+		<tr><td>이름4</td><td>O</td><td>대전</td></tr>
+		<tr><td>이름5</td><td>C</td><td>청주</td></tr>
+		<tr><td>이름6</td><td>D</td><td>제주</td></tr>
+	</table>
+	<br>
+	<hr>
+	<table id="tbl2">
+		<tr><th>이름</th><th>혈액형</th><th>지역</th></tr>
+		<tr><td>이름1</td><td>A</td><td>서울</td></tr>
+		<tr><td>이름2</td><td>B</td><td>부산</td></tr>
+		<tr><td>이름3</td><td>AB</td><td>광주</td></tr>
+		<tr><td>이름4</td><td>O</td><td>대전</td></tr>
+		<tr><td>이름5</td><td>C</td><td>청주</td></tr>
+		<tr><td>이름6</td><td>D</td><td>제주</td></tr>
+	</table>
+	
+	
+	
+</body>
+</html>

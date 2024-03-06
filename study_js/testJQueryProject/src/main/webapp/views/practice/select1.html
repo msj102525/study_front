@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>select1</title>
+<script type="text/javascript" src="/testq/resources/js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" defer>
+$(()=> {
+	$("h1:first").css("color", "#f00");
+	$("h1#text").css("color", "orange");
+	$("h1[name=text]").css("color", "yellow");
+	$("h1.text").css("color", "green");
+});
+</script>
+</head>
+<body>
+	<h1>text1</h1>
+	<h1 id="text">text2</h1>
+	<h1 name="text">text3</h1>
+	<h1 class="text">text4</h1>
+	
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/testq/resources/js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+	function add() {
+		var title = $("input[name=title]").val();
+		var content = $("input[name=content]").val();
+		var owner = $("input[name=owner]").val();
+		// console.log(title);
+		// $("tr:last").append().html($("body") + `<tr><td>${title}</td></tr><tr><td>${content}</td></tr><tr><td>${owner}</td></tr>`)
+		
+		var html = `<tr><td>${title}</td><td>${content}</td><td>${owner}</td></tr>`;
+		
+		$("table").append(html);
+		
+		$("input[name=title]").val("");
+		$("input[name=content]").val("");
+		$("input[name=owner]").val("");
+	}
+</script>
+</head>
+<body>
+	제목 : <input type="text" name="title"> <br>
+	내용 : <input type="text" name="content"> <br>
+	작성자 : <input type="text" name="owner"> <br>
+	<input type="button" value="테이블에 추가" onclick="add()">
+	<table border="1">
+		<tr>
+			<td>제목</td>
+			<td>내용</td>
+			<td>작성자</td>
+		</tr>
+	</table>
+</body>
+</html>

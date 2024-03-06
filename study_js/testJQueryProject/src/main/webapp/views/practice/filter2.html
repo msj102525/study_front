@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/testq/resources/js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+	function selectBtn() {
+		$("option").each(function() {
+			if ($(this).is(":selected")) {
+				console.log($(this).val() + "번");
+			}
+		})
+	}
+</script>
+</head>
+<body>
+	<select>
+		<option value="1" selected="selected">1번</option>
+		<option value="2">2번</option>
+		<option value="3">3번</option>
+	</select>
+	<br>
+	<input type="button" value="Select 버튼 확인" onclick="selectBtn()">
+</body>
+</html>

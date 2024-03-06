@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/testq/resources/js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+	$(()=> {
+		// $("선택자").메소드(값)
+		// 선택한 태그에 대헤 필터선택자를 사용해서, 다시 원하는 태그를 골라낼 수도 있음
+		//$("선택자: 필터선택자").메소드(값); => 대신에 filter() 메소드를 사용할 수도 있음
+		// 사용1 : $("선택자").filter("필터선택자").메소드(값);
+		// 사용2 : $("선택자").filter(function(index){계산에 의한 선택 처리}).메소드(값);		
+		
+		// $("h3:even").css("background", "black").css("color", "white");
+		
+		// $("h3").filter(":even").css("background", "black").css("color", "white");
+		
+		/* $("h3").filter(":even").css({
+			"background" : "black",
+			"color" : "white"
+		}); */
+		
+		$("h3").filter(function(index){
+			return index % 3 == 0;
+		}).css({
+			"background" : "purple",
+			"color" : "white"
+		});
+		
+		// $("선택자:eq(index)").메소드() => $("선택자").eq(index).메소드()
+		$("h3").eq(2).text("eq 메소드로 선택해서 값 변경함");
+		
+		// $("선택자").each(function(){});
+		// 선택된 태그들을 하나씩 처리하는 메소드임, for 루프문과 같은 동작구조를 가진 메소드임
+		// is("선택자 | 상태값") : 해당 선택자를 가진 태그인지? 
+		// 또는 선택된 태그의 상태가 true 인지? 확인할 때 사용하는 메소드임
+				$("h3").each(function(){
+					console.log($(this).text());
+					if($(this).is(".box")) {
+						$(this).css("border", "1px solid green");						
+					}
+				});
+	
+	}); // document ready
+</script>
+</head>
+<body>
+	<h1>필터 선택자와 filter() 메소드 사용 연습 페이지</h1>
+	<h3>Header-0</h3>
+	<h3>Header-1</h3>
+	<h3>Header-2</h3>
+	<h3 class="box">Header-3</h3>
+	<h3>Header-4</h3>
+	<h3 class="box">Header-5</h3>
+</body>
+</html>

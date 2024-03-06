@@ -67,24 +67,119 @@
 		function MkDiv() {
 			// 속성
 			this.element = null;
-			
+
 			// 메소드
-			this.make = function(id, w, h, c){
+			this.make = function(id, w, h, c) {
 				// div 태그 만들기해서 엘리먼트에 저장
 				this.element = document.createElement("div");
 				this.element.id = id;
 				this.element.style.width = w + 'px';
 				this.element.style.height = h + 'px';
 				this.element.style.backgroundColor = c;
-				
+
 				return this.element;
 			};
 		}; // MkDiv object
-		
+
 		// 버튼 클릭시 실행될 함수
-		function addDiv(){
-			document.getElementById('p2').appendChild(new MkDiv().make('box', 30, 100, 'red'));
+		function addDiv() {
+			document.getElementById('p2').appendChild(
+					new MkDiv().make('box', 30, 100, 'red'));
+
+		}
+	</script>
+	<hr>
+
+	<h2>from 입력양식에 값을 입력하고, 추가 버튼을 누르면 입력값들을 아래의 테이블에 한줄씩 추가되게 함</h2>
+	<form action="" method="post">
+		<label>이름 : <input type="text" name="username" id="username"></label>
+		<br> <label>나이 : <input type="number" name="age" id="age"></label>
+		<br> <label>성별 : <input type="radio" name="gender"
+			value="남"> 남자 &nbsp; <input type="radio" name="gender"
+			value="여"> 여자
+		</label> <br> <label>전화 번호 : <input type="tel" name="phone"
+			id="phone"></label> <br> <label>취미 : <input
+			type="checkbox" name="hobby" value="movie"> 영화보기 &nbsp; <input
+			type="checkbox" name="hobby" value="music"> 음악듣기 &nbsp; <input
+			type="checkbox" name="hobby" value="travel"> 여행하기 &nbsp; <input
+			type="checkbox" name="hobby" value="reading"> 책읽기 &nbsp; <input
+			type="checkbox" name="hobby" value="sport"> 운동하기 &nbsp;
+		</label> <br> <input type="button" value="추가하기" onclick="addUser();">
+		<br>
+	</form>
+	<p id="p3">
+	<table id="tbl" width="500" border="1" cellspacing="0">
+		<tr>
+			<th>이름</th>
+			<th>나이</th>
+			<th>성별</th>
+			<th>전화번호</th>
+			<th>취미</th>
+		</tr>
+		<!-- 입력값들로 새로운 행을 추가해 나감 -->
+	</table>
+	</p>
+
+	<script type="text/javascript">
+		function User() { // object, constructor
+			// field (property)
+			this.name = null;
+			this.age = 0;
+			this.gender = null;
+			this.phone = null;
+			this.hobby = null;
+
+			// method
+			this.setUser = function(name, age, gender, phone, hobby) {
+				this.name = name;
+				this.age = age;
+				this.gender = gender;
+				this.phone = phone;
+				this.hobby = hobby;
+			};
+			// 추가할 <tr>에 대한 문자열을 작성해서 리턴하는 메소드
+			this.makeRow = function() {
+				var trRow = "<tr><td>" + this.name + "</td><td>" + this.age
+						+ "</td><td>" + this.gender + "</td><td>" + this.phone
+						+ "</td><td>" + this.hobby + "</td><tr>";
+				return trRow;
+			};
+		} // function User
+		
+		// 추가하기 버튼 클릭시 실행될 이벤트 핸들러 작성
+		function addUser() {
+			// form 태그 안의 input 들에 기록된 값 또는 선택된 값을 변수에 저장 처리
+			var name = document.getElementById("username").value;
+			var age = document.getElementById("age").value;
+			var phone = document.getElementById("phone").value;
 			
+			var genders = document.getElementsByName("gender"); // 태그 정보
+			var gender = "";
+			if(genders[0].checked == true) {
+				// gender = genders[0].value;
+				gender = '남자';
+			} else if(genders[1].checked == true) {
+				// gender = genders[1].value;
+				gender = '여자';
+			}
+			
+			var hobby = document.getElementsByName("hobby"); // 태그들
+			var hobbyList = "";
+			//var hobbyList = [];
+			
+			for(var i in hobby) {
+				if(hobby[i].checked == true) {
+					hobbyList += hobby[i].value + ', ';					
+					//hobbyList += hobby[i].value;					
+				}
+			}
+			console.log(hobbyList);
+			
+			var user = new User();
+			user.setUser(name, age, gender, phone, hobbyList);
+			console.log(user.makeRow());
+			
+			document.getElementById("tbl").innerHTML += user.makeRow();
 		}
 	</script>
 

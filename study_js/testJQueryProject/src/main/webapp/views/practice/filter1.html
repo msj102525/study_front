@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/testq/resources/js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+	function checkBtn() {
+		var checkValue = "";
+		$("input[type=checkbox]").each(function(){
+			if($(this).is(":checked")) {
+			console.log($(this).val() + "번");	
+			checkValue += $(this).val() +"번";
+			}			
+		});
+	document.body.innerHTML += checkValue;
+	}
+</script>
+</head>
+<body>
+	<input type="checkbox" name="check" value="1"> 1번
+	<input type="checkbox" name="check" value="2"> 2번
+	<input type="checkbox" name="check" value="3"> 3번
+	<input type="checkbox" name="check" value="4"> 4번
+	<br>
+	<input type="button" value="체크 버튼 확인" onclick="checkBtn()">
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/testq/resources/js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+	function addFile() {
+		var addHtml = "<div><input type='file'></div>";
+		$("body").append(addHtml);
+	}
+	const delFile = () => {
+		$("div").last().remove();
+	}
+</script>
+</head>
+<body>
+	<div>
+		<input type="file">
+		<input type="button" value="추가" onclick="addFile()">
+		<input type="button" value="삭제" onclick="delFile()">
+	</div>
+</body>
+</html>

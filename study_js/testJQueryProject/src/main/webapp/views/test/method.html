@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/testq/resources/js/jquery-3.7.1.min.js"></script>
+<style type="text/css">
+.highlight_0 {	background: red;}
+.highlight_1 {	background: yellow;}
+.highlight_2 {	background: green;}
+.highlight_3 {	background: blue;}
+.highlight_4 {	background: orange;}
+.highlight_5 {	background: purple;}
+</style>
+<script type="text/javascript">
+	$(()=> {
+		var array =[
+			{name: "네이버", link: "https://www.naver.com"},
+			{name: "제이쿼리", link: "http://www.jquey.com"},
+			{name: "구글", link: "https://www.google.com"},
+			{name: "W3C", link: "https://www.w3.com"}
+		];
+		
+		// 1. $.each(배열객체, function([index[, item]]){})
+		$.each(array, (index, item)=>{
+			console.log(index + ": " + item	);
+			
+			var output = '';
+			//output += "<a href=" + item.link + '">' + item.name + '<a/><br>';
+			output += `<a href=${item.link}>${item.name}</a><br>`;
+			
+			document.body.innerHTML += output;
+		});
+		
+		// 일반함수 document ready 안에서 작성하면 안됨
+		// function te(){}
+		
+		//2. $("선택자").each(function([index[, item]]){});
+		$("h3").each(function(index,item){
+			console.log(index + ": " + item);
+			
+			// 선택된 클래스 속성을 추가 : addClass("클래스명")
+			$(item).addClass("highlight_" + index);
+		});
+		
+		// html() 와 text() 메소드 차이 비교
+		//document.body.innerHTML += $(".highlight_0").css("background-color"); // 속성값 조회
+		$("body").html($("body").html() + $(".highlight_0").css("background-color"));
+		
+		// 태그 안에 기록된 값 조회
+		console.log($("h1").html());
+		console.log($("h1").text());
+		
+		// 태그 안에 값 기록 또는 변경 처리
+		$("div#area1").html("<h1>html 메소드로 적용</h1>");
+		$("div#area2").text("<h1>html 메소드로 적용</h1>");
+		
+	}); // document ready
+	
+	// 일반함수는 document ready 밖에서 작성해야 함
+	function test(){
+		
+	}
+</script>
+</head>
+<body>
+	<h1>jQuery 배열 처리 : each() 메소드 사용</h1>
+	<h2>2. $("선택자").each() 사용</h2>
+	<h3>headline_0</h3>
+	<h3>headline_1</h3>
+	<h3>headline_2</h3>
+	<h3>headline_3</h3>
+	<h3>headline_4</h3>
+	<h3>headline_5</h3>
+	
+	<button onclick="removeTest();">class 속성 제거</button><br>	
+	<script type="text/javascript">
+		function removeTest() {
+			// 태그의 class 속성을 제거
+			$("h3").each(function(index, item){
+				$(item).removeClass("highlight_" + index);
+			});
+		}
+	</script>
+	<br>
+	<hr>
+	
+	<img src="/testq/resources/images/d7.jpg"> <br>
+	<button onclick="changeSize();">200x200</button> &nbsp;
+	<button onclick="removeSize();">원래 크기로</button>
+	
+	<script type="text/javascript">
+		function changeSize() {
+			$("img").attr("width", 200).attr("height", 200);
+		}
+		
+		function removeSize() {
+			$("img").removeAttr("width").removeAttr("height");
+		}
+	</script>
+	
+	<div id="area1"></div>
+	<div id="area2"></div>
+	<div id="area3">
+		<h2>area3 안의 후손 객체</h2>
+		<ul>
+			<li>항목1</li>
+			<li>항목2</li>
+			<li>항목3</li>
+			<li>항목4</li>
+		</ul>
+	</div>
+	
+	<button onclick="removeOne();">한 개만 지우기</button> &nbsp;
+	<button onclick="emptyTest();">모두 지우기</button>
+	
+	<script type="text/javascript">
+		function removeOne() {
+			$("h3").first().remove();			
+		}
+		
+		function emptyTest() {
+			$("div#area3").empty();			
+		}
+	</script>
+	
+</body>
+</html>
