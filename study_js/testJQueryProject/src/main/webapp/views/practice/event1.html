@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/testq/resources/js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+	$(()=> {
+		var len = $("number").children().length;
+		console.log("length : " + len);
+		$("#number").on("mouseover", function(e){
+			$(this).children().each(function(e){
+				console.log($(this).attr("class"));		
+			});
+		});
+	});
+</script>
+<style type="text/css">
+	li {border: 1px solid #000}
+</style>
+</head>
+<body>
+	<ul id="number">
+		<li class="n1">1</li>
+		<li class="n2">2</li>
+		<li class="n3">3</li>
+	</ul>
+
+</body>
+</html>

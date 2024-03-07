@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div.box {
+	width: 50px;
+	height: 50px;
+	position: relative;
+	background: orange;
+	margin: 10px;
+}
+</style>
+<script type="text/javascript" src="/testq/resources/js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+	$(()=> {
+		$("input[type=button]").eq(0).click(function(){
+			$("img").first().show();
+		});
+		
+		$("input[type=button]").eq(1).click(function(){
+			$("img").first().hide();
+		});
+		
+		$("input[type=button]").eq(2).click(function(){
+			$("img").first().toggle(1000);
+		});
+		
+		$("#slide").mouseover(function(){
+			$("img").eq(1).slideDown("slow");
+		}).mouseout(function(){
+			$("img").eq(1).slideUp("fast");
+		});
+		
+		$("img").eq(2).mouseover(function(){
+			$(this).fadeOut("normal");
+		}).mouseout(function(){
+			$(this).fadeIn("normal");
+		});
+		
+		// box 에 마우스 오버하면 오른쪽으로 500픽셀 이동시킴
+		// 마우스 아웃하면 원래 위치로 돌아오게 함
+		$("div.box").hover(function(){
+			$(this).animate({left: 500}, 'slow');
+		}, function(){
+			$(this).animate({left: 0}, "slow");
+		});
+		
+		// 애니메이션 지연 : delay()
+		$("div.box").each(function(index){
+			$(this).delay(index * 500).animate({left: 500}, 'slow');
+		});
+		
+		// 마지막 img를 클릭하면 두배로 커지게 함
+		// 다시 클릭하면 원래 크기로 돌아오게 함
+		// 상태 확인을 위한 플래그 변수를 적용함
+		var clickFlag = true; // 원래 크기 상태
+		$("img").last().click(function(){
+			if(clickFlag) {
+				// 원래 크기상태이므로 두배로 커지게 함
+				var w = $(this).css("width");
+				var h = $(this).css("height");
+				
+				$(this).animate({width: parseInt(w) * 2,
+										height: parseInt(h) * 2}, "slow");
+				clickFlag = false; // 두배로 커진 상태
+			} else {
+				// 두배 크기상태이므로 원래 크기로 변경함
+				var w = $(this).css("width");
+				var h = $(this).css("height");
+				
+				$(this).animate({width: parseInt(w) / 2,
+										height: parseInt(h) / 2}, "slow");
+				clickFlag = true; // 원래 크기 상태
+			}
+		});
+		
+	}); // document ready
+</script>
+</head>
+<body>
+	<h1>effect 메소드 연습 페이지</h1>
+	<h2>보이기(show), 안보이기(hide), 보였다 안 보였다 교대로 작동(toggle)</h2>
+	<img src="/testq/resources/images/ph1.jpg" width="150" height="150"> <br>
+	<input type="button" value="show"> &nbsp;
+	<input type="button" value="hide"> &nbsp;
+	<input type="button" value="toggle"> &nbsp;
+	<hr>
+	
+	<div id="slide" style="margin-bottom: 10px; border:3px solid #630; background:#960;border-radius:20px;width:300px;height:70px;padding:30px;">
+		여기에 마우스 오버하면 아래의 그림이 펼쳐집니다 <br>
+		마우스 아웃하면 그림이 접어집니다.
+	</div>
+	<img alt="#" src="/testq/resources/images/ph2.jpg" width="300" height="300" border="1" style="margin:0;padding: 0">
+	<hr>
+	
+	<img alt="#" src="/testq/resources/images/ph4.jpg" width="400" height="300">
+	<hr>
+	
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<hr>
+	
+	<img alt="#" src="/testq/resources/images/ph6.jpg" width="150" height="100">
+	<hr>
+	
+	
+</body>
+</html>

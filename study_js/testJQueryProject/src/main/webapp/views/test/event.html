@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/testq/resources/js/jquery-3.7.1.min.js"></script>
+<style type="text/css">
+	.reverse {
+		background-color: black;
+		color: white;
+	}
+	
+	div {
+		background: ivory;
+	}
+</style>
+
+<script type="text/javascript">
+	$(()=>{
+		$("div > h1").hover(function(){
+			// mouseenter 동작 발생시 작동되는 이벤트 핸들러
+			// mouseenter : 대상에 마우스 커서를 갖다 대었을 때(마우스 커서를 올렸을 때)
+			$(this).addClass("reverse");
+		}, ()=>{
+			// mouseleave 동작 발생시 작동되는 이벤트 핸들러
+			// mouseleave : 마우스 커서를 대상 위에서 밖으로 벗어나게 했을 때
+			$("div > h1").removeClass("reverse");
+		});
+		
+		// mousemove 이벤트와 이벤트 객체의 속성 테스트
+		/* $("body").bind("mousemove", function(event){
+			console.log("pageX : " + event.pageX + ", pageY : " + event.pageY);
+		}); */
+		
+		// 이벤트 강제 발생 : trigger() 사용
+		// $("div > h3").on("click", function([event]){ ....});
+		$("div > h3").click(function() {
+			$(this).html($(this).html() + "★");
+		});
+		
+		// 위의 click 을 자동 실행 처리
+		
+		/* setInterval(function(){
+			$("div > h3").last().trigger("click");
+		}, 1000); */
+		
+		// 이벤트 제거 : event.preventDefault();
+		$("div > h4 > a").click(function(event){
+			$(this).css("background", "blue");
+			console.log("div > h4 > a clicked..")
+			event.preventDefault();
+			event.stopPropagation();
+		});
+		
+		// child 엘리먼트가 클릭되면, 동일한 이벤트를 설정한 부모 엘리먼트일 때 부모에게 이벤트 전달
+		// 부모쪽으로 이벤트 전달을 막으려면, event.stopPropagation() 사용
+		$("div > h4").click(function(){
+			console.log("div > h4");
+		});
+		
+		// 이벤트 연결에 사용되는 메소드
+		// $("#wrap h1").on("click", function(){});
+		// $("#wrap h1").bind("click", function(){});
+		$("#wrap h1").click(function(){
+			var h1Length = $("#wrap h1").length; // 태그갯수
+			var h1Text = $("#wrap h1").html(); // 글자
+			// 태그 문자열을 만들어서, div 영역에 추가
+			// $("#wrap").append("<h1>" + h1Length  + '-' + h1Text + "</h1>");
+			$("#wrap").append(`<h1>${h1Length} - ${h1Text}</h1>`);
+		});		
+		
+		// mouseenter 와 mouseover 의 차이
+		// 태그 밖에서 대상 위로 갈때만 발생함
+		$("#outer").on("mouseenter", function(){
+			console.log("enter...");
+		});
+		
+		// 태그 밖에서든 안에서든 대상 위로 갈때 발생함
+		$("#outer").on("mouseover", function(){
+			console.log("over...");
+		});
+		
+		// 키보드 이벤트 테스트
+		$("textarea").on("keyup", function(){
+			$("#count").html($("#count").html() - 1);
+		});
+		
+		// form 태그와 input 태그에 사용하는 이벤트
+		// 주로 유효성 검사에 사용함
+		$("#login").on("submit", function(event){
+			var userid = $("#userid").val();
+			var userpwd = $("#userpwd").val();
+			
+			if(!(userid.length >= 12 && userid.length <= 15)) {
+				alert("아이디는 12~15 사이의 글자 갯수여야 합니다");
+				$("#userid").select();
+				// submit 이벤트 취소시킴
+				// event.preventDefault();
+				return false;
+			}
+			
+			if(!(userpwd.length >= 12 && userpwd.length <= 15)) {
+				alert("암호는 12~15 사이의 글자 갯수여야 합니다");
+				$("#userpwd").select();
+				// submit 이벤트 취소시킴
+				// event.preventDefault();
+				return false;
+			}
+			
+			return true;
+		});
+		
+		// change 이벤트
+		// checkbox, radio, select, text 등 모든 input의 값이 변경되었을 때 발생하는 이벤트
+		$("#all").on("change", function(){
+			if(this.checked == true){
+				// #all 이 체크표시가 되었다면
+				$("#items input[type=checkbox]").attr("checked", true);
+			} else {
+				// #all 이 체크가 해제되었다면
+				$("#items input[type=checkbox]").attr("checked", false);
+				// 또는 $("#items input[type=checkbox]").removeAttr("checked");
+				
+			}
+		});
+		
+	}); // document ready	
+</script>
+
+</head>
+<body>
+	<h1>jQuery Event 처리 연습 페이지</h1>
+	<div>
+		<h1>Header-0</h1>
+		<h1>Header-1</h1>
+		<h1>Header-2</h1>
+		<hr>
+		<h3>Srart1 :</h3>
+		<h3>Srart2 :</h3>
+		<hr>
+		<h4 style="border:1px solid #000;">
+			<a href="#" style="border:1px solid red;">이동</a>
+		</h4>
+	</div>
+	<hr>
+	
+	<div id="wrap">
+		<h1>Header</h1>
+	</div>
+	<hr>
+	
+	<div id="outer" style="width: 200px;height:200px;border: 1px solid blue;">
+		<div id="inner" style="width: 100px;height:100px;border: 1px solid green;"></div>
+	</div>
+	<hr>
+	
+	<h1 id="count">150</h1>	
+	<textarea rows="5" cols="70"></textarea>
+	<hr>
+	
+	<input type="checkbox" id="all"> 전체 선택 </p> <!-- br 대체용 -->
+	<div id="items">
+		<input type="checkbox"> 항목 1 <br>
+		<input type="checkbox"> 항목 2 <br>
+		<input type="checkbox"> 항목 3 <br>
+		<input type="checkbox"> 항목 4 <br>
+		<input type="checkbox"> 항목 5 <br>
+	</div>
+	<hr>
+	
+	<form id="login" action="/testq/index.html" method="post">
+		<input type="text" name="userid" id="userid" required> <br>
+		<input type="password" name="userpwd" id="userpwd" required> <br>
+		<input type="submit" value="로그인">
+	</form>
+		
+</body>
+</html>
+
+
+
+
+
+

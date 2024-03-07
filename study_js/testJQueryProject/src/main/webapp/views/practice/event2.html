@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/testq/resources/js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+	$(()=> {
+		
+		$("select[name='number']").on("change", () =>{
+		    $("#selNum").text($("select[name=number]").val() + "번");
+		});
+
+		
+	}); // document ready
+</script>
+</head>
+<body>
+	<select name="number">
+		<option value="">== 선택 ==</option>
+		<option value="1">1번</option>
+		<option value="2">2번</option>
+		<option value="3">3번</option>
+		<option value="4">4번</option>
+	</select>
+	<span id="selNum"></span>
+</body>
+</html>
