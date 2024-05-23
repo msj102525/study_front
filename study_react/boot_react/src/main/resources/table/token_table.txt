@@ -1,0 +1,22 @@
+토큰을 데이터베이스에 저장하는 방식
+1. dbms (Oracle, mySQL, MS-SQL Server 등)에 저장 : 부담을 줄이기 위해 Refresh Token 만 저장 관리
+2. Radis 라이브러리 사용 (dbms 대체용) : Access Token 과 Refresh Token 둘 다 저장 관리
+
+
+토큰 관련 테이블 : refresh_tokens (참고 예)
+목적 : 사용자의 리프레시 토큰 저장하는 용도임
+필드 목록 :
+id : 리프레시 토큰의 고유 식별자, CHAR(36), 필수입력
+user_id : 리프레시 토큰을 소유한 사용자의 아이디(이메일), VARCHAR2(40), 필수입력
+token_value : 리프레시 토큰 값, VARCHAR2(255), 필수입력
+issued_at : 토큰 발급 날짜 및 시작, TIMESTAMP, 기본값은 현재 시간
+expires_in : 토큰 만료 시간(초), BIGINT, 필수입력
+expiration_date : 토큰 만료 날짜 및 시간, TIMESTAMP, 필수입력
+user_agent : 토큰 발급 당시 사용된 사용자 에이전트, TEXT(LONG)
+status : 토큰 상태, VARCHAR2(50)
+제약조건 : PRIMARY KEY(id), FOREIGN KEY (user_id) REFERENCES 회원테이블명 (참조컬럼명) ON DELETE CASCADE
+인덱스 : 없음
+기타 코멘트 : 토큰의 상태는 status 필드를 통해 확인하고 관리됨
+
+
+
