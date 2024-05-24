@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.ict.boot_react.member.model.dto.MemberDto;
 import org.ict.boot_react.member.model.service.MemberService;
 import org.ict.boot_react.security.jpa.entity.RefreshToken;
-import org.ict.boot_react.security.jwt.model.service.RefreshTokenService;
+import org.ict.boot_react.security.model.service.RefreshTokenService;
 import org.ict.boot_react.security.jwt.util.JWTUtil;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutHandler;

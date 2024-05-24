@@ -60,7 +60,7 @@ public class MemberController {
         memberDto.setAdminYN(memberDto1.getAdminYN());
         memberDto.setLoginOk(memberDto1.getLoginOk());
 
-        log.info("updateMember222222222222222222" + memberDto);
+        log.info("updateMember" + memberDto);
         memberService.updateMember2(memberDto);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

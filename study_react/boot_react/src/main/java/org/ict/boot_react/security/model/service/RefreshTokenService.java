@@ -1,9 +1,8 @@
-package org.ict.boot_react.security.jwt.model.service;
+package org.ict.boot_react.security.model.service;
 
 import jakarta.transaction.Transactional;
 import org.ict.boot_react.security.jpa.entity.RefreshToken;
 import org.ict.boot_react.security.jpa.repository.RefreshTokenRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
