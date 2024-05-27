@@ -21,8 +21,11 @@ public class RefreshToken {
     @Column(length = 36)
     private UUID id;
 
+    @Column(name = "user_id")
+    private String userId;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "userid", referencedColumnName = "userid", nullable = false)
     private MemberEntity member;
 
     @Column(name = "token_value", nullable = false, length = 255)

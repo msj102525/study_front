@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import BoardAxios from "../../axios/BoardAxios";
+import BoardAxios from "../../axiosApi/BoardAxios";
 import withRouter from "../common/NavigateHOC";
 
 // 컴포넌트 클래스는 반드시 리엑트의 Component 클래스를 상속받아야 함

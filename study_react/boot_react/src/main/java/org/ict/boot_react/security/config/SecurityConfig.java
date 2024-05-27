@@ -59,12 +59,12 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/notices").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/notices").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/notices").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/boards/board").hasRole("USER")
-                        .requestMatchers(HttpMethod.PUT, "/boards").hasRole("USER")
-                        .requestMatchers(HttpMethod.DELETE, "/boards").hasRole("USER")
+                        .requestMatchers(HttpMethod.POST, "/boards/board").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/boards").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/boards").hasAnyRole("USER", "ADMIN")
                         // '/notice' path로 post 요청에 대해서는 'ADMIN' 롤 정보를 가진 사용자만 가능하다.
                         // 회원서비스의 마이페이지(GET), 내정보 수정(PUT), 탈퇴(PUT | DELETE) 로그인해야 접근 가능 => "USER"롤 가짐
-                        .requestMatchers("/api/auth/login", "/members/**", "/notices/**", "/board**", "/logout").permitAll()
+                        .requestMatchers("/", "/api/auth/login", "/reissue", "/members/**", "/notices/**", "/board**", "/logout").permitAll()
                         // 위의 path 글은 인증없이 접근 가능하다.
                         .anyRequest().authenticated())  // 그 외의 모든 요청은 인증을 요구한다
                 // JWTFilter 와 LoginFilter를 필터 체인에 등록함 => SecurityConfig

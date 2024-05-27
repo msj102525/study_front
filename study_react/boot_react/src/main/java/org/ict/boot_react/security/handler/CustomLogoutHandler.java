@@ -40,7 +40,7 @@ public class CustomLogoutHandler implements LogoutHandler {
             MemberDto member = memberService.selectMember(userId);
             if (member != null) {
                 // 해당 사용자의 리프레시 토큰을 데이터베이스에서 조회합니다.
-                Optional<RefreshToken> refresh = refreshService.findByUserId(UUID.fromString(member.getUserId()));
+                Optional<RefreshToken> refresh = refreshService.findByUserId(member.getUserId());
                 if (refresh.isPresent()) {
                     RefreshToken refreshToken = refresh.get();
                     // 리프레시 토큰을 데이터베이스에서 삭제합니다.

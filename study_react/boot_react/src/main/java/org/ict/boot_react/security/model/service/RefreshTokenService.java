@@ -27,7 +27,7 @@ public class RefreshTokenService {
         refreshTokenRepository.save(refreshToken); // insert 실행 처리
     }
 
-    public Optional<RefreshToken> findBtTokenValue(String tokenValue) {
+    public Optional<RefreshToken> findByTokenValue(String tokenValue) {
         return refreshTokenRepository.findByTokenValue(tokenValue); // select 조회 : 토큰객체 조회 (토큰값
     }
 
@@ -39,8 +39,8 @@ public class RefreshTokenService {
         refreshTokenRepository.deleteByTokenValue(tokenValue);
     }
 
-    public Optional<RefreshToken> findByUserId(UUID id) {
-        return refreshTokenRepository.findByUserId(id);
+    public Optional<RefreshToken> findByUserId(String userId) {
+        return refreshTokenRepository.findByUserId(userId);
     }
 
 

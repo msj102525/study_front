@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import BoardAxios from "../../axios/BoardAxios";
+import BoardAxios from "../../axiosApi/BoardAxios";
 import withRouter from "../common/NavigateHOC";
 
 class CreateBoardComponent extends Component {

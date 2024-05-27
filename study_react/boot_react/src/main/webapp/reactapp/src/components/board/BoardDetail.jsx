@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import BoardAxios from "../../axios/BoardAxios";
+import BoardAxios from "../../axiosApi/BoardAxios";
 
 // 컴포넌트 클래스는 반드시 리엑트의 Component 클래스를 상속받아야 함
 // 컴포넌트는 한 페이지에 출력되는 내용을 담은 하나의 div 라고 생각하면 됨

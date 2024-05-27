@@ -40,9 +40,13 @@ dependencies {
     runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
     annotationProcessor 'org.projectlombok:lombok'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
+    // 추가
+    testImplementation 'junit:junit:4.12'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
 
     // jwt 관련
     implementation 'io.jsonwebtoken:jjwt-api:0.11.5' // JWT를 생성하고 검증하기위한 JJWT API를 추가
