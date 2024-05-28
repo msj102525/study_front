@@ -45,6 +45,12 @@ public class JWTFilter extends OncePerRequestFilter {
             // SecurityConfig 에 설정된 LogoutHandler 를 상속받아 만든 CustomLogoutHandler 가 작동됨
             return;
         }
+        if ("/".equals(requestURI)) {
+            // 찾아갈 대상으로 그대로 전달함
+            filterChain.doFilter(request, response);
+            // SecurityConfig 에 설정된 LogoutHandler 를 상속받아 만든 CustomLogoutHandler 가 작동됨
+            return;
+        }
 
         // 토큰 확인이 필요없는 요청 (로그인하지 않고 이용하는 서비스 url)은 그대로 다음 단계로 넘김
         // 'Authorization' 이 헤더에 없거나 Bearer 토큰이 아니면 요청을 계속 진행함

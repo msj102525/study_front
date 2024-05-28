@@ -38,7 +38,7 @@ public class MemberController {
         return new ResponseEntity<>(memberService.selectMember(userId), HttpStatus.OK);
     }
 
-    @PostMapping("/insert")
+    @PostMapping("/")
     public ResponseEntity<MemberDto> insertMember(@RequestBody MemberDto memberDto){
         log.info("members/insert" + memberDto);
         MemberEntity memberEntity = new MemberEntity();
