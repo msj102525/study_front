@@ -1,21 +1,21 @@
 import React, { useEffect } from "react";
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { observer } from "mobx-react";
-import { AuthStore } from "../../stores/AuthStore"
+import { authStore } from "../../stores/AuthStore"
 import { logout } from "../../axiosApi/MemberAxios"
 
 const NavigationBar = observer(() => {
-    const loggedIn = AuthStore.loggedIn; // 로그인 상태값
+    const loggedIn = authStore.loggedIn; // 로그인 상태값
 
     useEffect(() => {
-        AuthStore.checkLoggedIn();
+        authStore.checkLoggedIn();
     }, []);
 
     // 로그아웃 핸들러
     const handleLogout = () => {
         logout().then(res => {
             localStorage.clear();
-            AuthStore.setLoggedIn(false);
+            authStore.setLoggedIn(false);
         });
     };
 

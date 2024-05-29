@@ -1,13 +1,13 @@
-// index.jsx
+// src/pages/index.jsx
 
-import { Container } from "react-bootstrap";
+import React from 'react';
 
-const index = () => {
-    return (
-        <Container fluid>
-                
-        </Container>
-    )
+const HomePage = () => {
+  return (
+    <div>
+      
+    </div>
+  );
 };
 
-export default index;
+export default HomePage;

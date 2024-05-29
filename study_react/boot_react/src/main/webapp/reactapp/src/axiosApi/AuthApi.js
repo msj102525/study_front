@@ -12,7 +12,7 @@ instance.interceptors.request.use(
         // '/reissue' 요청은 인터셉터에서 엑세스 토큰을 추가하지 않도록 함
         // 'login' 요청시 토큰이 저장되도록 처리하기 위함
         // 또는 저장된 토큰을 확인해서 로그인 상태 확인을 하기 위함
-        if (config.url != '/reissue') {
+        if (config.url !== '/reissue') {
             const token = localStorage.getItem('token');
             if (token) { // 로그인 상태
                 config.headers["Authorization"] = `Bearer ${token}`;

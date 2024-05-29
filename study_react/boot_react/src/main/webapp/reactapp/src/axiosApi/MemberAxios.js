@@ -1,5 +1,5 @@
 import axios from "./AuthApi";
-import { AuthStore } from "../stores/AuthStore";
+import { authStore } from "../stores/AuthStore";
 
 export const signUp = (signUpData) => {
     return axios.post("/members", signUpData).then(res => {
@@ -16,8 +16,8 @@ export const login = (loginData) => {
             window.localStorage.setItem("token", accessToken);
             window.localStorage.setItem("isAdmin", res.data.isAdmin);
             window.localStorage.setItem("token", res.data.refresh);
-            AuthStore.setIsAdmin(res.data.isAdmin); // true | false 로 기록
-            AuthStore.checkLoggedIn();
+            authStore.setIsAdmin(res.data.isAdmin); // true | false 로 기록
+            authStore.checkLoggedIn();
         }
         return res;
     });

@@ -21,7 +21,7 @@ class AuthStore {
     }
 }
 
-export const AuthStore = new AuthStore();
+export const authStore = new AuthStore();
 
 
 
