@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>React App</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const root = document.getElementById("root");
+
+        function MinutesToHours() {
+            const [amount, setAmount] = React.useState(0);
+            const [flipped, setFlipped] = React.useState(false);
+            const onChange = (event) => {
+                setAmount(event.target.value);
+            }
+            const reset = () => setAmount(0);
+            const onFlip = () => {
+                setFlipped((current) => !current);
+            }
+            return (
+                <div>
+                    <h4>convert {amount} </h4>
+                    <label htmlFor="minutes">Minutes</label>
+                    <input onChange={onChange} value={flipped ? amount * 60 : amount} id="minutes" placeholder="Minutes" type="number" disabled={flipped} />
+                    <label htmlFor="hours">Hours</label>
+                    <input onChange={onChange} id="hours" placeholder="Hours" type="number" value={flipped ? amount : Math.round(amount / 60)} disabled={!flipped} />
+                    <button onClick={reset}>Reset</button>
+                    <button onClick={onFlip}>onFlip</button>
+                </div>
+            );
+        }
+
+        
+
+        function App() {
+            return (
+                <div>
+                    <h1 className="hi">Super Converter</h1>
+                    <MinutesToHours />
+
+                </div>
+            );
+        }
+
+
+        ReactDOM.render(<App />, root);
+
+    </script>
+</body>
+
+</html>

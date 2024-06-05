@@ -33,7 +33,7 @@ const WritePostModal = ({ isOpen, onClose, onSubmit }) => {
         setTitle("")
         setContent("")
         setIsPinned(false)
-        setFiles(null);
+        // setFiles(null);
     },[isOpen])
 
     if (!isOpen) return null;
