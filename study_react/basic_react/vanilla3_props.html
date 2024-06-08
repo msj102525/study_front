@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>React App</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+
+        function Btn(props) {
+            console.log(props)
+            return <button style={{
+                backgroundColor: "tomato",
+                color: "white",
+                padding: "10px 20px",
+                border: 0,
+                borderRadius: 10,
+                fontSize: props.boolean ? 18 : 11
+            }}>
+                {props.text}
+            </button>
+        }
+
+
+
+        function App() {
+            return (
+                <div>
+                    <Btn text="Save Changes" boolean={true} />
+                    <Btn text="Continue" boolean={false} />
+                </div>
+            )
+        }
+
+        const root = document.getElementById("root");
+        ReactDOM.render(<App />, root);
+
+    </script>
+</body>
+
+</html>
